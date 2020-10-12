@@ -14,16 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    //return view('welcome');
-    $user = Auth::user();
-    if($user->isAdmin()){
-        echo "This user is an administrator";
-    }
+    return view('welcome');
+//    $user = Auth::user();
+//    if($user->isAdmin()){
+//        echo "This user is an administrator";
+//    }
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/admin/user/roles',['middleware' => ['role','auth'],function (){
+Route::get('/admin/user/roles', ['middleware' => ['role', 'auth'], function () {
     return "Middleware Role";
 }]);
+Route::get('/admin','AdminController@index');
