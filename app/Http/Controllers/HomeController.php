@@ -25,9 +25,12 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $request->session()->put(['edwin' => 'master instructor']);
-        session(['peter' => 'student']);
-        echo $request->session()->get('edwin');
-        //return $request->session()->all();
+        //session(['peter' => 'student']);//it is the global function session
+        //return session('peter');
+        //echo $request->session()->get('edwin');
+        //$request->session()->forget('peter');
+        $request->session()->flush();
+        return $request->session()->all();
         //return view('home');
     }
 }
