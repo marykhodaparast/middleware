@@ -29,8 +29,12 @@ class HomeController extends Controller
         //return session('peter');
         //echo $request->session()->get('edwin');
         //$request->session()->forget('peter');
-        $request->session()->flush();
-        return $request->session()->all();
+//        $request->session()->flush();
+//        return $request->session()->all();
         //return view('home');
+        //$request->session()->flash('message','Post has been created');
+        //return $request->session()->get('message');//after we comment flash the flashed data is gone
+        //$request->session()->reflash();//use this or keep to keep the data
+        //$request->session()->keep('message');
     }
 }
